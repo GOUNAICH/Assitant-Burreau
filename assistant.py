@@ -124,7 +124,10 @@ class AIAssistant:
                     pyautogui.press('backspace')  # Delete all
                 else:
                     await self.write_to_notepad(command)
-            
+                    
+            elif 'open' in command:
+                app_name = command.replace('open', '').strip().lower()
+                await self.open_application(app_name)
                 
             elif "search for" in command:
                 search_query = command.replace("search for", "").strip()
